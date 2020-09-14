@@ -1,0 +1,1 @@
+java -jar cqhttp-mirai-0.2.3-embedded-all-1.jar

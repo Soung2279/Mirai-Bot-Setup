@@ -1,0 +1,8 @@
+﻿#DEBUG
+NOUPDATE
+#在----------下面可以添加需要在每次启动时输入得指令
+#本文件请用notepad++打开（不要用记事本）
+例如:
+login 123456789 TestMiraiOK
+----------
+login 

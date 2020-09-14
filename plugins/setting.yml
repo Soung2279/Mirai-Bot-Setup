@@ -1,0 +1,16 @@
+"123456789":
+    ws_reverse:
+      - enable: true
+        postMessageFormat: string
+        reverseHost: 127.0.0.1
+        reversePort: 9222
+        reversePath: /ws/
+        accessToken: null
+        reconnectInterval: 3000
+      - enable: true
+        postMessageFormat: array
+        reverseHost: 127.0.0.1
+        reversePort: 8090
+        reversePath: /ws/
+        accessToken: null
+        reconnectInterval: 3000
