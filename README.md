@@ -7,8 +7,11 @@
 如有近期搭建bot的需求，请阅读以下参考：
 
 [Windows下 go-cqhttp版的部署指南 - Soung2279](https://github.com/Soung2279/haru-bot-setup/)  ：发布时间2021-7-14
+
 [Linux 下部署一个公主连结 qq 群聊机器人 - 地河君_official](https://cn.pcrbot.com/deploy-a-priconne-bot-on-linux/)  ：发布时间2020-12-02
+
 [使用 Docker 部署 HoshinoBot 与 yobot - yuudi](https://cn.pcrbot.com/depoly-with-docker/)  ：发布时间2020-11-08
+
 
 <details>
   <summary>(点击查看)原Mirai-Bot-Setup指南</summary>
