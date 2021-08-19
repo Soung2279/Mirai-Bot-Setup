@@ -1,21 +1,33 @@
 # Mirai-Bot-Setup
 
-*基于[Mirai](https://github.com/mamoe/mirai)，[HoshinoBot](https://github.com/Ice-Cirno/HoshinoBot)，[Yobot](http://yobot.win/)的**QQ机器人搭建指南***
+*******
 
-请注意：本指南**并非**官方文档，写此指南的目的是方便编程**初学者**或毫无经验的**小白**快速上手搭建自己的bot
+**因本人不再使用 ``Mirai`` 作为机器人框架部分，本指南长期未更新，涉及的部分插件，基础框架等已失效（2021/8/20），原指南仅做参考用。**
+
+如有近期搭建bot的需求，请阅读以下参考：
+
+[Windows下 go-cqhttp版的部署指南 - Soung2279](https://github.com/Soung2279/haru-bot-setup/)  ：发布时间2021-7-14
+[Linux 下部署一个公主连结 qq 群聊机器人 - 地河君_official](https://cn.pcrbot.com/deploy-a-priconne-bot-on-linux/)  ：发布时间2020-12-02
+[使用 Docker 部署 HoshinoBot 与 yobot - yuudi](https://cn.pcrbot.com/depoly-with-docker/)  ：发布时间2020-11-08
+
+<details>
+  <summary>(点击查看)原Mirai-Bot-Setup指南</summary>
+
+基于 [Mirai](https://github.com/mamoe/mirai) ，[HoshinoBot](https://github.com/Ice-Cirno/HoshinoBot)， [Yobot](http://yobot.win/) 的 **Windows环境** **QQ机器人搭建指南**
+
+本指南并非官方文档，写此指南的目的是方便**Windows环境下**的 编程初学者 或 无搭建经验的小白 快速上手搭建属于自己的 bot
 
 **感谢[Mirai](https://github.com/mamoe/mirai)项目 ，[HoshinoBot](https://github.com/Ice-Cirno/HoshinoBot)项目，[Yobot](https://github.com/pcrbot/yobot)项目，[cqhttp-mirai](https://github.com/yyuueexxiinngg/cqhttp-mirai) 插件和 众多[bot插件](https://www.pcrbot.com/) 的开发者们！**
 
-**本指南具有时效性，请注意。**
 
 
-# 写在前面
+## 写在前面
 
-参照本指南引导，个人搭建者无需编程知识即可快速搭建bot，但仍建议您了解一些有关**Python，Java, Kotlin等**的基础知识。
+按本指南引导，个人搭建者 简略知晓 编程知识即可快速搭建 bot，但仍建议您了解有关 [Python](https://www.python.org/), [Java](https://www.java.com/zh-CN/), [Kotlin](https://kotlinlang.org/)等的基础知识。
 
 善用[Baidu](https://www.baidu.com/), [Bing](https://cn.bing.com/), [Google](http://www.google.cn/)等搜索引擎能帮助您更快上手
 
-若对自己搭建的bot**不完全了解**各项参数，指令等含义，请**不要**将bot用于出租
+请**不要**在不知晓自己搭建的bot各项参数，指令处理方式等进阶内容的情况下将bot用于出租
 
 ## 简介
 
@@ -27,14 +39,12 @@
 
 - **CQHTTP-MIRAI:** 为Mirai移植的CQHTTP插件以兼容基于CQHTTP API开发的应用
 
-- **QQ机器人的运作方式:** 简单来说，Mirai相当于一个下载了QQ的手机，而cqhttp-mirai是连接的WIFI信号，HoshinoBot，Yobot则是这个手机后面打字的人。
-
-本指南将引导您将HoshinoBot和Yobot利用cqhttp-mirai缝合到Mirai上。
+本指南将引导您将 ``HoshinoBot`` 和 ``Yobot`` 利用 ``cqhttp-mirai`` 组合到 ``Mirai`` 上并同时运行。
 
 
 ## 功能介绍
 
-根据本指南部署完成的bot应具有以下功能：
+根据本指南部署完成的 bot 应具有以下功能：
 
 - **基于腾讯AI闲聊的智能闲聊**  [aichat]()
 - **模拟群空调运行**  [aircon]()
@@ -78,7 +88,7 @@ Bot 的功能繁多，可根据自身需要控制开关，在群聊中发送 `ls
 service-name帮助
 ```
 
-# 准备工作
+## 准备工作
 
 **本指南面向无编程基础或刚入门的萌新，故推荐使用具有图形界面，对新手操作友好的Windows服务器来进行部署**
 
@@ -99,7 +109,7 @@ service-name帮助
 
 - （可选）使用 IE 或自行安装其他浏览器，用Bot 的QQ号登录网页[QQ安全中心](https://aq.qq.com/cn2/index)并保持登录至少一周。~~(即使不执行此步骤，Bot 仍然可正常搭建运行，但部分群聊消息可能会被tx吞，且异地登录有冻结风险)~~
 
-# 部署步骤
+## 部署步骤
 
 ### Windows 部署
 
@@ -111,7 +121,7 @@ service-name帮助
     - Notepad++ ：https://notepad-plus-plus.org/downloads/
 
     > 部分网页国内网络可能访问缓慢，这里提供已整合好的压缩文件  
-    > 百度网盘：**[安装资源整合包](https://pan.baidu.com/s/1HwD-Z0f7msXKXLR0_Bec9Q)**
+    > 百度网盘：**[安装资源整合包](https://pan.baidu.com/s/1HwD-Z0f7msXKXLR0_Bec9Q)**  //截止2021-8-20日，该网盘资源经检查仍可用
     > 提取码：***4396***  
     > 以上软件/工具可在整合包里的**backups/software**里找到
 
@@ -236,23 +246,25 @@ Running on https://0.0.0.0:9222 (CTRL + C to quit)
 
 在bot所在群聊中发送`version`和`help`，若bot在群聊中有反应，说明bot的Yobot部分**正常**运行中。此时可发送【help】来查看bot的会战文档。
 
-# 更进一步
+</details>
 
-### · 若Bot 运行正常，可考虑开启更多模块以丰富bot的功能。
+## 更进一步
 
-### · 在 `HoshinoBot/hoshino/config/_bot_.py` 文件里，将需要开启的模块前面的"`#井号`"删除。各项模块对应的功能可在[**写在前面-功能介绍**]()处查看
+- 若 Bot 运行正常，可考虑开启更多模块以丰富bot的功能。
 
-### · 若想给Bot 添加更多功能，可以自行收集插件放入 `HoshinoBot/hoshino/modules` 文件夹中。（请仔细阅读该插件的说明文档，某些插件的添加方式有所不同）
+- 在 `HoshinoBot/hoshino/config/_bot_.py` 文件里，将需要开启的模块前面的 "`#`" 删除。各项模块对应的功能可在 [功能介绍](#功能介绍) 处查看
 
-### · 若Bot 添加群过多，需要引入授权系统，请启用[**authMS**](https://github.com/pcrbot/authMS)插件。Bot 已内置此插件，请仔细阅读说明文档进行配置。
+- 若想给 Bot 添加更多功能，可以自行收集插件放入 `HoshinoBot/hoshino/modules` 文件夹中。（请仔细阅读该插件的说明文档，部分插件的安装方式有所不同）
+
+- 若 Bot 添加群过多，可尝试引入授权系统，请启用 [**authMS**](https://github.com/pcrbot/authMS) 插件。本指南提供的 Bot 已内置此插件，请仔细阅读说明文档进行配置。
 
 ### · 可自定义的内容
 
-- `modules/botchat/botchat.py`：这是**bot的轻量语言库**，可自行添加语句和回复，源文件里已包含范例。不同bot的人格差异化也基于此体现。
+- `modules/botchat/botchat.py`：这是**bot的轻量语言库**，可自行添加语句和回复，源文件里已包含范例。不同 bot 的 人格差异化 也基于此体现。
 
 - `modules/explosion/exo.py`：这是**爆裂魔法**，可自行更改日调用上限，也可以自行魔改添加更多语音。
 
-- `modules/generator-image/`：这是**表情包生成器**，可在`meme`里自行添加更多表情包。
+- `modules/generator-image/`：这是**表情包生成器**，可在 `meme` 里自行添加更多表情包。
 
 - `modules/HELP`：这是Bot 的**帮助文档**，可自行更改文本内容。
 
@@ -260,42 +272,42 @@ Running on https://0.0.0.0:9222 (CTRL + C to quit)
 
 - `modules/pcrwarn`：这是**定时提醒**，可自行更改提醒时间，提醒内容。
 
-- `modules/priconne/gacha/`：这是**模拟抽卡**，可在`gacha.py`中自行更改抽卡次数日上限，还可在`config.json`中自行更改卡池内容。
+- `modules/priconne/gacha/`：这是**模拟抽卡**，可在 `gacha.py` 中自行更改抽卡次数日上限，还可在 `config.json` 中自行更改卡池内容。
 
 - `modules/setu/setu.py`：这是**涩图**，可自行更改日调用上限。
 
-- `modules/wcloud/`：这是**随机网抑云**，可在`nt_words.json`中自行更改语录文本。
+- `modules/wcloud/`：这是**随机网抑云**，可在 `nt_words.json` 中自行更改语录文本。
 
-# 常见问题
+## 常见问题
 
-### Q：为什么我的Bot 发不出图片/语音？
-### A：请检查资源路径`RES_DIR`是否设置正确，目录`Resources`下该图片/语音是否存在  
+#### Q：为什么我的 Bot 发不出图片/语音？
+#### A：请检查资源路径 `RES_DIR` 是否设置正确，目录 `Resources` 下该图片/语音是否存在  
 
-### Q：为什么我的Bot 没有反应？
-### A：请查看窗口显示的日志。  
-- #### 若日志显示正常，请查看在[**准备工作**]()步骤中是否放通端口。
-- #### 若日志有报错信息，请复制报错信息到搜索引擎解决。
-- #### 若日志无反应，请在该窗口输入回车`(按下Enter键)`，查看日志是否有反应。若日志仍无反应，请查看在[**部署步骤 - 4.修改以下几个文件的配置**]()中的文件是否正确配置
-- #### 若端口已经放通，请尝试其它指令；若部分指令有回应，说明bot 正常运行中，只是部分消息被tx吞了。若所有指令都无回应，请重新运行`双击安装依赖`
-- #### 若所有方式都无法让Bot 做出反应，请尝试重新部署Bot。
+#### Q：为什么我的Bot 没有反应？
+#### A：请查看窗口显示的日志。  
+- ##### 若日志显示正常，请查看在[**准备工作**]()步骤中是否放通端口。
+- ##### 若日志有报错信息，请复制报错信息到搜索引擎解决。
+- ##### 若日志无反应，请在该窗口输入回车`(按下Enter键)`，查看日志是否有反应。若日志仍无反应，请查看在[**部署步骤 - 4.修改以下几个文件的配置**]()中的文件是否正确配置
+- ##### 若端口已经放通，请尝试其它指令；若部分指令有回应，说明bot 正常运行中，只是部分消息被tx吞了。若所有指令都无回应，请重新运行`双击安装依赖`
+- ##### 若所有方式都无法让Bot 做出反应，请尝试重新部署Bot。
 
-### Q：Bot 的权限是怎么设定的？
-- ### A：基于HoshinoBot的功能，设定主人为**最高**权限`priv.SUPERUSER`，群主为仅次于主人的第二权限`priv.OWNER`，群管理为更次一等的权限`priv.ADMIN`，群员为最低权限`priv.NORMAL`。(黑/白名单不考虑在内) 主人可以在`_bot_.py`里设定多个 
-- ### A：而基于Yobot的功能，需要在面板中单独设定群员`公会战管理员`和`成员`，默认群员为`成员`，`公会战管理员`可以设置**多个**，但`主人`只能设定**一个**
+#### Q：Bot 的权限是怎么设定的？
+- ##### A：基于HoshinoBot的功能，设定主人为**最高**权限`priv.SUPERUSER`，群主为仅次于主人的第二权限`priv.OWNER`，群管理为更次一等的权限`priv.ADMIN`，群员为最低权限`priv.NORMAL`。(黑/白名单不考虑在内) 主人可以在`_bot_.py`里设定多个 
+- ##### A：而基于Yobot的功能，需要在面板中单独设定群员`公会战管理员`和`成员`，默认群员为`成员`，`公会战管理员`可以设置**多个**，但`主人`只能设定**一个**
 
-### Q：有什么其他的Bug吗？
-### A：目前使用的`cqhttp-mirai-0.2.3-embedded-all`插件发送的语音文件仅支持.amr/mp3，且 `.mp3` 在移动端QQ将错误显示时长，在PC端无法播放
+#### Q：有什么其他的Bug吗？
+#### A：使用`cqhttp-mirai-0.2.3-embedded-all`插件发送的语音文件仅支持.amr/mp3，且 `.mp3` 在移动端QQ将错误显示时长，在PC端无法播放
 
-### Q：以后的更新维护？
-### A：您可以自行访问[Mirai](https://github.com/mamoe/mirai)项目 ，[HoshinoBot](https://github.com/Ice-Cirno/HoshinoBot)项目，[Yobot](https://github.com/pcrbot/yobot)项目，[cqhttp-mirai](https://github.com/yyuueexxiinngg/cqhttp-mirai) 插件和 众多[bot插件](https://www.pcrbot.com/) 来进行更新。
+#### Q：以后的更新维护？
+#### A：您可以自行访问[Mirai](https://github.com/mamoe/mirai)项目 ，[HoshinoBot](https://github.com/Ice-Cirno/HoshinoBot)项目，[Yobot](https://github.com/pcrbot/yobot)项目，[cqhttp-mirai](https://github.com/yyuueexxiinngg/cqhttp-mirai) 插件和 众多[bot插件](https://www.pcrbot.com/) 来进行更新。
 
-### Q：还有什么注意事项？
-### A：请勿滥用Bot。
+#### Q：还有什么注意事项？
+#### A：请勿滥用Bot。
 
-# 最后
+## 最后
 
-### 本人非专业程序员，如本篇指南有错误，请及时告知我。
-### 本篇指南搭载的Bot 模块 均根据本人喜好进行取舍，世面上还有很多非常优秀的Bot 插件，请自行探寻。
+本人非专业程序员，如本篇指南有错误，请及时告知我。
+本篇指南搭载的 Bot 模块 均根据本人喜好进行取舍，世面上还有很多非常优秀的 Bot 插件，请自行探寻。
 
 ## 鸣谢
 
@@ -312,15 +324,15 @@ Running on https://0.0.0.0:9222 (CTRL + C to quit)
 
 ### 插件部分
 
-- [**Dihe Chen**](https://github.com/Chendihe4975)  
-- [**var**](https://github.com/var-mixer)  
-- [**xhl6699**](https://github.com/xhl6666)  
-- [**Watanabe-Asa**](https://github.com/Watanabe-Asa)  
-- [**-LAN-**](https://github.com/laipz8200)  
-- [**Cappuccilo**](https://github.com/Cappuccilo)  
-- [**yuyumoko**](https://github.com/yuyumoko)  
-- [**H-K-Y**](https://github.com/H-K-Y)  
-- [**ZhouYuan**](https://github.com/zyujs)  
+- [Dihe Chen](https://github.com/Chendihe4975)  
+- [var](https://github.com/var-mixer)  
+- [xhl6699](https://github.com/xhl6666)  
+- [Watanabe-Asa](https://github.com/Watanabe-Asa)  
+- [-LAN-](https://github.com/laipz8200)  
+- [Cappuccilo](https://github.com/Cappuccilo)  
+- [yuyumoko](https://github.com/yuyumoko)  
+- [H-K-Y](https://github.com/H-K-Y)  
+- [ZhouYuan](https://github.com/zyujs)
 ...
 
 ### 资源部分
@@ -332,4 +344,7 @@ Running on https://0.0.0.0:9222 (CTRL + C to quit)
 **Pcrbot - pcrbot相关仓库**: https://www.pcrbot.com/
 
 
-###   本项目基于[GNU通用公共授权3.0](http://www.gnu.org/licenses/) 开源
+####   本项目基于[GNU通用公共授权3.0](http://www.gnu.org/licenses/) 开源
+
+***********
+
